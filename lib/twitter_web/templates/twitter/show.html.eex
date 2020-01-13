@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitter Engine</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="row">
+		<div class="col-11">
+			<h1>Hey, <%= @messenger %>!</h1>
+		</div>
+		<div class="col-1" style="padding-bottom: 30px; padding-right: 30px;">
+			<button id="logout-button" class="btn btn-outline-danger btn-lg">Logout</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-3" style="padding-right: 60px;">
+			<h3 style="margin-bottom: 30px;">Manage your Account</h3>
+			<button type="button" style = "margin-right:30px; margin-bottom: 30px;"id="see-followers" class="btn btn-primary btn-lg btn-block">Followers</button>
+			<button type="button" style = "margin-right: 30px; margin-bottom: 30px;"id="see-following" class="btn btn-primary btn-lg btn-block">Following</button>
+			<button type="button" style = "margin-right: 30px; margin-bottom: 30px;"id="see-selftweets" class="btn btn-primary btn-lg btn-block">My Tweets</button>
+			<button type="button" style = "margin-right:30px; margin-bottom: 30px;" class="btn btn-primary btn-lg btn-block"id="see-mentions">My mentions</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block"id="delete-account-button" class="btn btn-primary btn-lg"style="background-color:#ff0000; margin-right:30px; margin-bottom: 30px;">Delete Account</button>
+			
+			<div id="followers-div" style="display: none;">
+				<h2>Followers</h2>
+				<ul id ="followers-list" style="padding: 10px; background-color:white; list-style: none;"></ul>
+			</div>
+			<div id="following-div" style="display: none;">
+				<h2>Following</h2>
+				<ul id ="following-list" style="padding: 10px; background-color:white; list-style: none"></ul>
+			</div>
+			<div id="mentions-div" style="display: none;">
+				<h2>Your Mentions</h2>
+				<ul id ="mentions-list" style="padding: 10px; background-color:white; list-style: none"></ul>
+			</div>
+			 
+		</div>
+
+		<div class="col-6">
+			<div class="phx-hero">
+				
+				<form>
+					<input type="text" id="tweet" placeholder="What's happening?" required>
+					<p style="padding-top:25px;"></p>
+					<button class="btn btn-primary btn-lg" style="padding-left: 30px; padding-right: 30px;" id="submit-tweet">Tweet</button>
+				</form>
+			</div>
+			<div id = "tweets-div" style="display: none;">
+				<h2>Your Tweets</h2>
+				<div style="border: 1px solid; border-radius: 5px; margin-bottom: 10px;">
+				<ul id ="tweets-list" style="padding: 10px; background-color:white; list-style: none;"></ul>
+			</div>
+			</div>
+
+			<div id="feed-div">
+				<h2>Your Feed</h2>
+				<ul id ="feed" style="background-color:white; list-style: none;"></ul>
+			</div> 
+		</div>
+		<div class="col-3">
+			<div class="form-group">
+				<form>
+					<input type="text" class="form-control"id="to-be-followed" placeholder="Type name to follow" required>
+					<br>
+
+					<button id="follow-user" style = "margin-right:0px; margin-bottom: 30px;" class="btn btn-primary btn-lg btn-block">Follow</button>
+				</form>
+			</div>
+			<div class="form-group">
+				<form>
+					<input type="text" class="form-control"id="hashtag-query" placeholder="#hashtag" required>
+					<br>
+
+					<button id="search-hashtags" style = "margin-right:30px; margin-bottom: 30px;" class="btn btn-primary btn-lg btn-block">Search Hashtags</button>
+				</form>
+				<h2 id = "hashtag-results-string" style="display: none;">Tweets with the hashtag</h2>
+				<ul id ="hashtags-results" style="padding: 10px; background-color:white; list-style: none;"></ul>
+			</div>
+		</div>
+	</body>
+	</html>
+

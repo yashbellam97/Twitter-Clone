@@ -1,0 +1,14 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Twitter" %></h1>
+  <br>
+</section>
+
+<h3>Signup</h3>
+<form>
+    <input type="text" id="username" placeholder="username" required>
+    <input type="password" id="password" placeholder="password" required>
+    <input type="password" id="confirm-password" placeholder="confirm password" required>
+    <button id="signup">Signup</button>
+</form>
+
+<p>Already have an account? <a href="http://localhost:4000/">Login</a></p>
